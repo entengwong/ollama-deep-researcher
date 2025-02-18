@@ -4,6 +4,15 @@ from typing import Dict, Any
 from langsmith import traceable
 from tavily import TavilyClient
 
+
+
+from langfuse.callback import CallbackHandler
+langfuse_handler = CallbackHandler(
+    public_key="pk-lf-f3ee88dc-0d42-4ebf-a1fb-e050407b58af",
+    secret_key="sk-lf-8ec0a2ce-a3a9-4241-ac3f-fd14de92dc15",
+    host="http://localhost:3000"
+)
+
 def deduplicate_and_format_sources(search_response, max_tokens_per_source, include_raw_content=False):
     """
     Takes either a single search response or list of responses from search APIs and formats them.
